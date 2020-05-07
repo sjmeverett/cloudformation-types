@@ -137,6 +137,10 @@ export function getAttribute<TAttributes, TName extends keyof TAttributes>(
   return { 'Fn:GetAtt': [getName(resource), name] } as any;
 }
 
+/**
+ * Gets the Resources map for your CloudFormation template from an array of resources.
+ * @param resources the resources that make up the template, as created by any `create...` function
+ */
 export function getResources(
   resources: ResourceDescription<string, unknown, unknown>[],
 ) {
