@@ -4,6 +4,7 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "strict": true,
+    "types": ["node"],
     "esModuleInterop": true,
     "sourceMap": true,
     "outDir": "dist",
