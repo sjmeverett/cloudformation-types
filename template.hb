@@ -73,16 +73,21 @@ export interface {{name}}Properties {
 }
 
 /**
+ * Represents a `{{type}}` resource.
+ */
+export type {{name}}Description = ResourceDescription<
+  "{{type}}",
+  {{name}}Properties,
+  {{name}}Attributes
+>;
+
+/**
  * Creates a `{{type}}` resource.
  */
 export function create{{name}}(
   name: string,
   properties: {{name}}Properties
-): ResourceDescription<
-  "{{type}}",
-  {{name}}Properties,
-  {{name}}Attributes
-> {
+): {{name}}Description {
   return createResource("{{type}}", name, properties);
 }
 
@@ -154,4 +159,8 @@ export function getResources(
   });
 
   return resources;
+}
+
+export function fnSub(str: string, vars?: Record<string, string>): string {
+  return { 'Fn::Sub': vars ? [str, vars] : str } as any;
 }

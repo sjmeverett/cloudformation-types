@@ -88,7 +88,7 @@ function getType(spec: any, namespace: string, typeNames: Set<string>): string {
     return primitive;
   } else if (spec.Type === 'List' || spec.Type === 'Map') {
     const type = getType(itemTypeToRegularType(spec), namespace, typeNames);
-    return spec.type === 'List' ? type + '[]' : `Record<string, ${type}>`;
+    return spec.Type === 'List' ? `${type}[]` : `Record<string, ${type}>`;
   } else if (typeNames.has(namespace + '.' + spec.Type)) {
     return sanitiseName(namespace + spec.Type);
   } else if (typeNames.has(spec.Type)) {

@@ -51,6 +51,7 @@ There are a few helper methods as well:
 - `getRef(resource)` — just returns `{ Ref: getName(resource) }`
 - `getAttribute(resource, attributeName)` — gets an attribute (output) from the specified resource, in a typesafe manner
 - `getResources(resources)` — builds up the map of resource name to resource definition from an array of resources
+- `fnSub(str: string, vars?: Record<string, string>)` — helper for `Fn::Sub` intrinsic function
 
 Note that the types returned from `getRef` and `getAttribute` are "faked". `getRef` claims to return a string, even though it returns an object like `{Ref: 'foo'}`, and `getAttribute` claims to return whatever the type of the attribute you asked for, even though it actually returns `{'Fn::GetAtt': 'foo'}`. I figured this was more useful, as it means you can supply an attribute value to a Property with the matching type.
 
