@@ -2,6 +2,9 @@
   "name": "@sjmeverett/cloudformation-types",
   "description": "Basically, CloudFormation in typescript instead of JSON/YAML",
   "version": "0.1.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Stewart Everett (https://sjmeverett.uk)",
   "scripts": {
     "download": "curl --compressed https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json -o ./src/spec.json",
