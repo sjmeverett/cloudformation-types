@@ -1,0 +1,32 @@
+{
+  "name": "@sjmeverett/cloudformation-types",
+  "description": "Basically, CloudFormation in typescript instead of JSON/YAML",
+  "version": "0.1.0",
+  "author": "Stewart Everett (https://sjmeverett.uk)",
+  "scripts": {
+    "download": "curl --compressed https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json -o ./src/spec.json",
+    "generate": "ts-node generate.ts",
+    "build-ts": "tsc",
+    "build": "mkdir -p src && yarn download && yarn generate && yarn build-ts"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "devDependencies": {
+    "handlebars": "^4.7.6",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjmeverett/cloudformation-types.git"
+  },
+  "keywords": [
+    "cloudformation",
+    "deployment"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sjmeverett/cloudformation-types/issues"
+  },
+  "homepage": "https://github.com/sjmeverett/cloudformation-types#readme"
+}
