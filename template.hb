@@ -99,7 +99,7 @@ export function create{{name}}(
  * @param resource The resource to get the name of
  */
 export function getName(
-  resource: ResourceDescription<string, unknown, unknown>,
+  resource: ResourceDescription<any, unknown, unknown>,
 ): string {
   return (resource as any)[nameSymbol] as string;
 }
@@ -110,8 +110,8 @@ export function getName(
  * @param dependencies The resource(s) on which the resource is dependent
  */
 export function dependsOn(
-  resource: ResourceDescription<string, unknown, unknown>,
-  ...dependencies: ResourceDescription<string, unknown, unknown>[]
+  resource: ResourceDescription<any, unknown, unknown>,
+  ...dependencies: ResourceDescription<any, unknown, unknown>[]
 ) {
   if (!resource.DependsOn) {
     resource.DependsOn = [];
@@ -125,7 +125,7 @@ export function dependsOn(
  * @param resource
  */
 export function getRef(
-  resource: ResourceDescription<string, unknown, unknown>,
+  resource: ResourceDescription<any, unknown, unknown>,
 ): string {
   return { Ref: getName(resource) } as any;
 }
@@ -136,7 +136,7 @@ export function getRef(
  * @param name The name of the attribute to get.
  */
 export function getAttribute<TAttributes, TName extends keyof TAttributes>(
-  resource: ResourceDescription<string, unknown, TAttributes>,
+  resource: ResourceDescription<any, any, TAttributes>,
   name: TName,
 ): TAttributes[TName] {
   return { 'Fn:GetAtt': [getName(resource), name] } as any;
@@ -147,11 +147,11 @@ export function getAttribute<TAttributes, TName extends keyof TAttributes>(
  * @param resources the resources that make up the template, as created by any `create...` function
  */
 export function getResources(
-  resources: ResourceDescription<string, unknown, unknown>[],
+  resources: ResourceDescription<any, unknown, unknown>[],
 ) {
   const obj = {} as Record<
     string,
-    ResourceDescription<string, unknown, unknown>
+    ResourceDescription<any, unknown, unknown>
   >;
 
   resources.forEach((resource) => {
