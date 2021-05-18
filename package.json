@@ -10,7 +10,7 @@
     "download": "curl --compressed https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json -o ./src/spec.json",
     "generate": "ts-node generate.ts",
     "build-ts": "tsc",
-    "build": "mkdir -p src && yarn download && yarn generate && yarn build-ts",
+    "build": "mkdir -p src && npm run download && npm run generate && npm run build-ts",
     "clean": "rm -rf src dist",
     "postversion": "git push --follow-tags"
   },
