@@ -139,7 +139,7 @@ export function getAttribute<TAttributes, TName extends keyof TAttributes>(
   resource: ResourceDescription<any, any, TAttributes>,
   name: TName,
 ): TAttributes[TName] {
-  return { 'Fn:GetAtt': [getName(resource), name] } as any;
+  return { 'Fn::GetAtt': [getName(resource), name] } as any;
 }
 
 /**
@@ -158,7 +158,7 @@ export function getResources(
     obj[getName(resource)] = resource;
   });
 
-  return resources;
+  return obj;
 }
 
 export function fnSub(str: string, vars?: Record<string, string>): string {

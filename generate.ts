@@ -84,9 +84,7 @@ function primitiveType(type: string) {
 function getType(spec: any, namespace: string, typeNames: Set<string>): string {
   const primitive = primitiveType(spec.PrimitiveType || spec.Type);
 
-  if (!spec.Type) {
-    return 'any';
-  } else if (primitive) {
+  if (primitive) {
     return primitive;
   } else if (spec.Type === 'List' || spec.Type === 'Map') {
     const type = getType(itemTypeToRegularType(spec), namespace, typeNames);
@@ -96,9 +94,8 @@ function getType(spec: any, namespace: string, typeNames: Set<string>): string {
   } else if (typeNames.has(spec.Type)) {
     return sanitiseName(spec.Type);
   } else {
-    throw new Error(
-      `Unknown type "${spec.Type}" or "${namespace}.${spec.Type}"`,
-    );
+    console.warn(`Unknown type "${spec.Type}" or "${namespace}.${spec.Type}"`);
+    return 'any';
   }
 }
 
