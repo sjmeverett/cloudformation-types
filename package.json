@@ -1,7 +1,7 @@
 {
   "name": "@sjmeverett/cloudformation-types",
   "description": "Basically, CloudFormation in typescript instead of JSON/YAML",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "publishConfig": {
     "access": "public"
   },
