@@ -84,7 +84,9 @@ function primitiveType(type: string) {
 function getType(spec: any, namespace: string, typeNames: Set<string>): string {
   const primitive = primitiveType(spec.PrimitiveType || spec.Type);
 
-  if (primitive) {
+  if (!spec.Type) {
+    return 'any';
+  } else if (primitive) {
     return primitive;
   } else if (spec.Type === 'List' || spec.Type === 'Map') {
     const type = getType(itemTypeToRegularType(spec), namespace, typeNames);
