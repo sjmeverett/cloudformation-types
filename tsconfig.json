@@ -6,11 +6,9 @@
     "strict": true,
     "types": ["node"],
     "esModuleInterop": true,
-    "sourceMap": true,
     "outDir": "dist",
     "rootDir": "src",
     "declaration": true,
-    "declarationMap": true,
     "module": "commonjs"
   },
   "include": ["src"],

@@ -11,13 +11,14 @@
     "generate": "ts-node generate.ts",
     "build-ts": "tsc",
     "build": "mkdir -p src && yarn download && yarn generate && yarn build-ts",
-    "clean": "rm -rf src dist"
+    "clean": "rm -rf src dist",
+    "postversion": "git push --follow-tags"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "devDependencies": {
     "@types/node": "^13.13.5",
-    "handlebars": "^4.7.6",
+    "handlebars": "^4.7.7",
     "ts-node": "^8.6.2",
     "typescript": "^3.7.5"
   },
